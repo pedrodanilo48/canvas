@@ -19,8 +19,11 @@ function mouseDownEvent(){
     podeDesenhar = true;
 }
 function mouseMoveEvent(){
-     if podeDesenhar(){
-        
+     if (podeDesenhar){
+        let pontoX = e.pageX - screen.offsetLeft;
+        let pontoY = e.pageY - screen.offsetTop;
+
+        console.log(pointX, pointY);
      }
 }
 function mouseUpEvent(){
