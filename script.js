@@ -2,6 +2,9 @@ let corAtual = 'black';
 let screen = document.querySelector('#tela');
 let contexto = screen.getContext('2d');
 let podeDesenhar = false;
+let mouseX = 0;
+let mouseY = 0;
+
 document.querySelectorAll('.colorArea .color').forEach(item =>{
     item.addEventListener('click' , colorClickEvent);
 });
@@ -20,8 +23,8 @@ function mouseDownEvent(){
 }
 function mouseMoveEvent(){
      if (podeDesenhar){
-        let pontoX = e.pageX - screen.offsetLeft;
-        let pontoY = e.pageY - screen.offsetTop;
+        let pontoX = x - screen.offsetLeft;
+        let pontoY = y - screen.offsetTop;
 
         console.log(pointX, pointY);
      }
