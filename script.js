@@ -30,5 +30,5 @@ function mouseMoveEvent(){
      }
 }
 function mouseUpEvent(){
-    podeDesenhar = false;
+    podeDesenhar = fals;
 }
