@@ -8,9 +8,11 @@ let mouseY = 0;
 document.querySelectorAll('.colorArea .color').forEach(item =>{
     item.addEventListener('click' , colorClickEvent);
 });
+
 screen.addEventListener('mousedown', mouseDownEvent)
 screen.addEventListener('mousemove', mouseMoveEvent)
 screen.addEventListener('mousemove', mouseUpEvent)
+
 function colorClickEvent(e) {
     let color = e.target.getAttribute('data-color');
     console.log("COR CLICADA: ", color);
@@ -23,12 +25,25 @@ function mouseDownEvent(){
 }
 function mouseMoveEvent(){
      if (podeDesenhar){
-        let pontoX = x - screen.offsetLeft;
-        let pontoY = y - screen.offsetTop;
-
-        console.log(pointX, pointY);
+        desenhar(e.pageX, e.pageY);
      }
 }
 function mouseUpEvent(){
-    podeDesenhar = fals;
+    podeDesenhar = false;
+}
+function desenhar(x , y){
+    let pointX = x - screen.offsetLeft;
+    let pointY = y - screen.offsetTop;
+
+    ctx.beginPath();
+    ctx.lineWidth = 5;
+    ctx.lineJoin = "round";
+    ctx.moveTo(mouseX, mouseY);
+    ctx.lineTo(pointX, pointY);
+    ctx.closePath();
+    ctx.strokeStyle = currentColor;
+    ctx.stroke();  
+
+    mouseX = pointX;
+    mouseY = pointY;
 }
